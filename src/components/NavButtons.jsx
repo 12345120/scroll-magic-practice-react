@@ -1,18 +1,20 @@
 import "../css/NavButtons.css";
+import "../css/util.css"
+import { useStateValue } from "../state/StateProvider";
 
 function NavButtons() {
-  function NavButton() {
+  const [{theme : { text_color }}, dispatch] = useStateValue();
+  
+  function NavButton({ text }) {
     
-    return (
-      <div className="NavButton">
-        
-      </div>
-    )
+    return <div className={`NavButton ${text_color}`}>{text}</div>;
   }
   
   return (
     <div className="NavButtons">
-      <div></div>
+      <NavButton text={'About'}/>
+      <NavButton text={'Contact'}/>
+      <NavButton text={'More'}/>
     </div>
   );
 }

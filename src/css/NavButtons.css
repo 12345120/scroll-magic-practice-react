@@ -1,0 +1,22 @@
+.NavButtons {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 20px;
+}
+
+.NavButton {
+  border: 2px solid white;
+  width: 100px;
+  text-align: center;
+  padding: 5px 12px;
+  border-radius: 20px;
+  transition: background-color 300ms, color 300ms;
+  cursor: pointer;
+  font-weight: 400;
+}
+
+.NavButton:hover {
+  background-color: white;
+  color: black;
+}
