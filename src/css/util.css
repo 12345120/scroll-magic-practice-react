@@ -16,3 +16,13 @@
   background-color: blue;
 }
 
+/* Scroll Magic Classes */
+.slide-vert {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.slide-horiz {
+  opacity: 1;
+  transform: translateX(0);
+}
