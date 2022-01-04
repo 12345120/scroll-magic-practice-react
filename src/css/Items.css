@@ -17,6 +17,11 @@
   place-items: center;
   font-size: 2rem;
   position: relative;
+  transition: transform 300ms;
+}
+
+.Item:hover {
+  transform: scale(1.2);
 }
 
 .Item_text {
