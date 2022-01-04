@@ -3,6 +3,7 @@ import NavButtons from "./components/NavButtons";
 import { ReactComponent as Logo } from "./img/cloud.svg";
 import { useState } from "react";
 import MainBanner from "./components/MainBanner";
+import Items from "./components/Items";
 
 function App() {
   const [hover, setHover] = useState(false);
@@ -26,7 +27,7 @@ function App() {
 
       <MainBanner />
 
-
+      <Items/>
     </div>
   );
 }
