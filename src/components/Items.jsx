@@ -9,9 +9,8 @@ function Items() {
       <Controller>
         <Scene
           triggerHook={0.7}
-          duration={300}
           triggerElement={"#circle-1"}
-          classToggle={["Item", "slide-vert"]}
+          classToggle={[`.circle-1`, "slide-vert"]}
           reverse={true}
           indicators={true}
         >
@@ -23,20 +22,36 @@ function Items() {
             slide_offset={"100px"}
           />
         </Scene>
-        <Item
-          color={"#2E8ADC"}
-          text={"blue circle"}
-          id_num={2}
-          slide_direction={"horiz"}
-          slide_offset={"100px"}
-        />
-        <Item
-          color={"#DCDA2E"}
-          text={"yellow circle"}
-          id_num={3}
-          slide_direction={"horiz"}
-          slide_offset={"-100px"}
-        />
+        <Scene
+          triggerHook={0.7}
+          triggerElement={"#circle-2"}
+          classToggle={[`.circle-2`, "slide-horiz"]}
+          reverse={true}
+          indicators={true}
+        >
+          <Item
+            color={"#2E8ADC"}
+            text={"blue circle"}
+            id_num={2}
+            slide_direction={"horiz"}
+            slide_offset={"100px"}
+          />
+        </Scene>
+        <Scene
+          triggerHook={0.7}
+          triggerElement={"#circle-3"}
+          classToggle={[`.circle-3`, "slide-horiz"]}
+          reverse={true}
+          indicators={true}
+        >
+          <Item
+            color={"#DCDA2E"}
+            text={"yellow circle"}
+            id_num={3}
+            slide_direction={"horiz"}
+            slide_offset={"-100px"}
+          />
+        </Scene>
       </Controller>
     </div>
   );
@@ -56,7 +71,7 @@ const Item = forwardRef(
     return (
       <div
         ref={ref}
-        className="Item"
+        className={`Item circle-${id_num}`}
         style={{ backgroundColor: color, ...slide_style }}
         id={`circle-${id_num}`}
       >

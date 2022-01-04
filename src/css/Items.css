@@ -17,7 +17,7 @@
   place-items: center;
   font-size: 2rem;
   position: relative;
-  transition: transform 300ms;
+  transition: transform 700ms ease-out, opacity 700ms ease-out;
 }
 
 .Item:hover {
