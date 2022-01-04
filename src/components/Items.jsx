@@ -7,13 +7,22 @@ function Items() {
   return (
     <div className="Items">
       <Controller>
-        <Item
-          color={"#DC4D2E"}
-          text={"red circle"}
-          id_num={1}
-          slide_direction={"vert"}
-          slide_offset={"100px"}
-        />
+        <Scene
+          triggerHook={0.7}
+          duration={300}
+          triggerElement={"#circle-1"}
+          classToggle={["Item", "slide-vert"]}
+          reverse={true}
+          indicators={true}
+        >
+          <Item
+            color={"#DC4D2E"}
+            text={"red circle"}
+            id_num={1}
+            slide_direction={"vert"}
+            slide_offset={"100px"}
+          />
+        </Scene>
         <Item
           color={"#2E8ADC"}
           text={"blue circle"}
@@ -26,43 +35,35 @@ function Items() {
           text={"yellow circle"}
           id_num={3}
           slide_direction={"horiz"}
-          slide_offset={"100px"}
+          slide_offset={"-100px"}
         />
       </Controller>
     </div>
   );
 }
 
-forwardRef();
-function Item({ color, text, id_num, slide_direction, slide_offset }) {
-  const slide_translate_val = `translate${
-    slide_direction == "horiz" ? "X" : "Z"
-  }(${slide_offset})`;
+const Item = forwardRef(
+  ({ color, text, id_num, slide_direction, slide_offset }, ref) => {
+    const slide_translate_val = `translate${
+      slide_direction === "horiz" ? "X" : "Y"
+    }(${slide_offset})`;
 
-  const slide_style = {
-    opacity: "0",
-    transform: slide_translate_val,
-  };
+    const slide_style = {
+      opacity: "0.5",
+      transform: slide_translate_val,
+    };
 
-  return (
-    <Controller>
-      <Scene
-        triggerHook={0.7}
-        triggerElement={"#circle-1"}
-        classTogle={""}
-        reverse={false}
-        indicators={true}
+    return (
+      <div
+        ref={ref}
+        className="Item"
+        style={{ backgroundColor: color, ...slide_style }}
+        id={`circle-${id_num}`}
       >
-        <div
-          className="Item"
-          style={{ backgroundColor: color, ...slide_style }}
-          id={`circle-${id_num}`}
-        >
-          <div className="Item_text">{text}</div>
-        </div>
-      </Scene>
-    </Controller>
-  );
-}
+        <div className="Item_text">{text}</div>
+      </div>
+    );
+  }
+);
 
 export default Items;
