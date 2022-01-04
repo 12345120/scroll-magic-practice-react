@@ -2,14 +2,13 @@ import "./css/App.css";
 import NavButtons from "./components/NavButtons";
 import { ReactComponent as Logo } from "./img/cloud.svg";
 import { useState } from "react";
+import MainBanner from "./components/MainBanner";
 
 function App() {
   const [hover, setHover] = useState(false);
 
   return (
     <div className="App">
-      <header className="App_header"></header>
-
       <div className="navbar">
         <div className="navbar-nav">
           <div
@@ -20,13 +19,14 @@ function App() {
             <div className="logo-name">Cloudy Logo</div>
             <Logo className="logo"></Logo>
           </div>
-          
+
           <NavButtons />
         </div>
       </div>
-      
-      
-      
+
+      <MainBanner />
+
+
     </div>
   );
 }

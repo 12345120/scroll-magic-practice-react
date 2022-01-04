@@ -5,12 +5,20 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
+  overflow: visible;
+}
+
+.App {
+  height: 100vh;
+  position: relative;
 }
 
 .navbar {
+  z-index: 99;
   padding: 20px 20px;
   background-color: black;
   position: sticky;
+  top: 0;
   box-shadow: 0 3px 15px 0 rgba(63, 204, 171, 0.5);
 }
 
@@ -57,4 +65,3 @@
 .logo:hover {
   transform: scale(1.2);
 }
-
